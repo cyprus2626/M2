@@ -1,180 +1,236 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>M2 Ideenliste</title>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 700px;
-      margin: 20px auto;
-      background: #fff;
-      border-radius: 12px;
-      padding: 20px 30px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    h1 {
-      text-align: center;
-      color: #2c3e50;
-      margin-bottom: 20px;
-    }
-    h2 {
-      border-bottom: 2px solid #eee;
-      padding-bottom: 5px;
-      color: #34495e;
-      margin-top: 25px;
-    }
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    li {
-      margin: 8px 0;
-      line-height: 1.5;
-      display: flex;
-      align-items: flex-start;
-    }
-    input[type="checkbox"] {
-      margin-right: 10px;
-      margin-top: 3px;
-    }
-    .subitems {
-      margin-left: 25px;
-      margin-top: 3px;
-    }
-    .completed {
-      text-decoration: line-through;
-      color: gray;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>M2 Masterplan</title>
+
+<style>
+body {
+  font-family: -apple-system, BlinkMacSystemFont;
+  background: #f2f4f7;
+  margin: 0;
+}
+
+.container {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 15px;
+}
+
+h1 { text-align: center; }
+
+.card {
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.header {
+  padding: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+}
+
+.content {
+  display: none;
+  padding: 10px 15px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+input { margin-right: 10px; }
+
+.hammers { font-size: 14px; }
+
+.star {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.progress {
+  background: #ddd;
+  height: 18px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.bar {
+  height: 100%;
+  background: #4caf50;
+  width: 0%;
+}
+
+.today {
+  background: #fff8e1;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+</style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>M2 Ideenliste</h1>
 
-    <h2>Local skills ✓</h2>
-    <ul>
-      <li><input type="checkbox" checked disabled> Freibad testen</li>
-      <li><input type="checkbox" checked disabled> Hallenbad testen</li>
-      <li><input type="checkbox" checked disabled> Kinderwanderweg testen</li>
-      <li><input type="checkbox" checked disabled> Fahrradtour planen</li>
-      <li><input type="checkbox" checked disabled> Museum</li>
-      <li><input type="checkbox" checked disabled> Outlet</li>
-      <li><input type="checkbox" checked disabled> Zugausflug</li>
-      <li><input type="checkbox" checked disabled> Von Baumhögger Kartoffeln holen</li>
-      <li><input type="checkbox" checked disabled> Hederquellgebiet testen (Tretbecken)</li>
-      <li><input type="checkbox" checked disabled> Dom besuchen</li>
-    </ul>
+<div class="container">
 
-    <h2>Handstand in 10 Schritten</h2>
-    <ul>
-      <li><input type="checkbox"> Handstand in 10 Schritten</li>
-    </ul>
+<h1>M2 Masterplan</h1>
 
-    <h2>Backskills</h2>
-    <ul>
-      <li><input type="checkbox"> Kuchen backen mit Kindern in 10 Schritten</li>
-    </ul>
+<div id="progressText">0%</div>
+<div class="progress"><div class="bar" id="bar"></div></div>
 
-    <h2>Familienskills ✓</h2>
-    <ul>
-      <li><input type="checkbox" checked disabled> Urlaubsideen</li>
-      <li><input type="checkbox" checked disabled> Kochideen für die Woche</li>
-      <li><input type="checkbox" checked disabled> Snackideen für die Kids</li>
-      <li><input type="checkbox" checked disabled> Snackideen für uns</li>
-      <li><input type="checkbox" checked disabled> Tagesausflug organisieren</li>
-      <li><input type="checkbox" checked disabled> Es war einmal das Leben DVD</li>
-      <li><input type="checkbox" checked disabled> Allen ein neues Buch vorlesen</li>
-      <li><input type="checkbox" checked disabled> Nägel lackieren</li>
-      <li><input type="checkbox" checked disabled> Boden wischen organisieren</li>
-      <li><input type="checkbox" checked disabled> Picknickausflug</li>
-      <li><input type="checkbox" checked disabled> Sozialkauhaus</li>
-    </ul>
+<div class="today">
+<h3>📅 Heute lernen</h3>
+<div id="todayList"></div>
+</div>
 
-    <h2>Tillmannskills ✓</h2>
-    <ul>
-      <li><input type="checkbox" checked disabled> Fahrrad</li>
-      <li><input type="checkbox" checked disabled> Zur Ruhe kommen</li>
-      <li><input type="checkbox" checked disabled> Athletic Yoga testen</li>
-      <li><input type="checkbox" checked disabled> Gute Bücher finden</li>
-      <li><input type="checkbox" checked disabled> Ferdi treffen</li>
-      <li><input type="checkbox" checked disabled> Tomatengruppe</li>
-      <li><input type="checkbox" checked disabled> Mit Tiffy&Lara Geschelcht klären und Klamotten weg</li>
-      <li><input type="checkbox" checked disabled> Morgens als erstes auf Balkon</li>
-    </ul>
+<div id="app"></div>
 
-    <h2>Beziehungsskills ✓</h2>
-    <ul>
-      <li><input type="checkbox" checked disabled> Vanessa Geburtstag</li>
-      <li><input type="checkbox" checked disabled> Massageabend</li>
-      <li><input type="checkbox" checked disabled> Date orga</li>
-      <li><input type="checkbox" checked disabled> Abend zu Hause</li>
-      <li><input type="checkbox" checked disabled> Inlinertourorga</li>
-      <li><input type="checkbox" checked disabled> Hochzeitsideen</li>
-      <li><input type="checkbox" checked disabled> Siedler Kartenspiel Regeln vorbereiten</li>
-      <li><input type="checkbox" checked disabled> Baldurs Gate runterladen</li>
-      <li><input type="checkbox" checked disabled> Vanessa auf Körperhaltung hinweisen</li>
-      <li><input type="checkbox" checked disabled> Vanessa auf Ring kontrollieren</li>
-    </ul>
+</div>
 
-    <h2>Renovierungsskills ✓</h2>
-    <ul>
-      <li><input type="checkbox" checked disabled> Beleuchtung Spielecke</li>
-      <li><input type="checkbox" checked disabled> Bett Jasper</li>
-      <li><input type="checkbox" checked disabled> Gewürzregal</li>
-      <li><input type="checkbox" checked disabled> Kisten Küche</li>
-      <li><input type="checkbox" checked disabled> Flur Tapete ab</li>
-      <li><input type="checkbox" checked disabled> Flur streichen</li>
-      <li><input type="checkbox" checked disabled> Garderobe Levkes Zimmer</li>
-      <li><input type="checkbox" checked disabled> Wintersachen verstauen</li>
-      <li><input type="checkbox" checked disabled> Sonnenschutz Schlafzimmer</li>
-      <li><input type="checkbox" checked disabled> Balkon einrichten</li>
-    </ul>
+<script>
 
-    <h2>Daddy Skills ✓</h2>
-    <ul>
-      <li><input type="checkbox" checked disabled> Sommerschuhe J</li>
-      <li><input type="checkbox" checked disabled> Gartenequipment</li>
-      <li><input type="checkbox" checked disabled> Playdates</li>
-      <li><input type="checkbox" checked disabled> Hobbies testen</li>
-      <li><input type="checkbox" checked disabled> Mit den Kindern wegfahren</li>
-      <li><input type="checkbox" checked disabled> Mit den Kindern basteln</li>
-      <li><input type="checkbox" checked disabled> Dekoprojekt</li>
-      <li><input type="checkbox" checked disabled> Kresse pflanzen</li>
-      <li><input type="checkbox" checked disabled> Levke schwimmen beibringen</li>
-      <li><input type="checkbox" checked disabled> Mit Jasper draußen pinkeln üben</li>
-    </ul>
+const data = [
+["Local Skills",[
+["Freibad testen",2],["Hallenbad testen",1],["Kinderwanderweg testen",3],
+["Fahrradtour planen",4],["Museum",2],["Outlet",1],["Zugausflug",3],
+["Kartoffeln holen",2],["Hederquelle",2],["Dom besuchen",2]
+]],
 
-    <h2>Kochskills ✓</h2>
-    <ul>
-      <li><input type="checkbox" checked disabled> Etwas indisches</li>
-      <li><input type="checkbox" checked disabled> Fancy Salat</li>
-      <li><input type="checkbox" checked disabled> Etwas israelisches</li>
-      <li><input type="checkbox" checked disabled> Auflauf</li>
-      <li><input type="checkbox" checked disabled> Fladenbrot backen</li>
-      <li><input type="checkbox" checked disabled> Etwas veganes</li>
-      <li><input type="checkbox" checked disabled> Apfelkuchen</li>
-      <li><input type="checkbox" checked disabled> Spinatsmoothie</li>
-      <li><input type="checkbox" checked disabled> Marmelade kochen</li>
-    </ul>
+["Familienskills",[
+["Urlaubsideen",3],["Kochideen",2],["Snackideen Kids",1],["Snackideen uns",1],
+["Tagesausflug",4],["DVD schauen",1],["Buch vorlesen",2],["Nägel lackieren",1],
+["Boden wischen",2],["Picknick",2],["Sozialkaufhaus",3]
+]],
 
-    <h2>Sportskills</h2>
-    <ul>
-      <li><input type="checkbox"> Sportskills</li>
-    </ul>
+["Tillmannskills",[
+["Fahrrad",2],["Zur Ruhe kommen",4],["Yoga",3],["Bücher finden",2],
+["Ferdi treffen",2],["Tomatengruppe",2],["Shoppen",1],
+["Gespräch klären",5],["Balkon morgens",2]
+]]
+];
 
-    <h2>Brief</h2>
-    <ul>
-      <li><input type="checkbox"> Brief</li>
-    </ul>
+// UI bauen
+const app = document.getElementById("app");
+let allCheckboxes = [];
 
-  </div>
+data.forEach((cat,ci)=>{
+
+  let card = document.createElement("div");
+  card.className="card";
+
+  let header = document.createElement("div");
+  header.className="header";
+  header.innerText = cat[0];
+
+  let content = document.createElement("div");
+  content.className="content";
+
+  header.onclick = () => {
+    content.style.display = content.style.display === "block" ? "none" : "block";
+  };
+
+  cat[1].forEach((item,ii)=>{
+
+    let row = document.createElement("div");
+    row.className="item";
+
+    let left = document.createElement("div");
+    left.className="left";
+
+    let cb = document.createElement("input");
+    cb.type="checkbox";
+
+    let key = ci+"-"+ii;
+    cb.checked = localStorage.getItem(key)==="true";
+
+    cb.onchange = () => {
+      localStorage.setItem(key,cb.checked);
+      update();
+    };
+
+    allCheckboxes.push(cb);
+
+    let star = document.createElement("span");
+    star.innerText = "⭐";
+    star.className="star";
+
+    let todayKey = "today-"+key;
+    if(localStorage.getItem(todayKey)==="true") star.style.opacity=1;
+    else star.style.opacity=0.3;
+
+    star.onclick = () => {
+      let active = localStorage.getItem(todayKey)==="true";
+      localStorage.setItem(todayKey,!active);
+      star.style.opacity = !active ? 1 : 0.3;
+      renderToday();
+    };
+
+    left.appendChild(cb);
+    left.appendChild(document.createTextNode(item[0]));
+    left.appendChild(star);
+
+    let right = document.createElement("div");
+    right.className="hammers";
+    right.innerText = "🔨".repeat(item[1]);
+
+    row.appendChild(left);
+    row.appendChild(right);
+
+    content.appendChild(row);
+
+  });
+
+  card.appendChild(header);
+  card.appendChild(content);
+  app.appendChild(card);
+});
+
+// Progress
+function update(){
+  let total = allCheckboxes.length;
+  let checked = allCheckboxes.filter(c=>c.checked).length;
+  let percent = Math.round((checked/total)*100);
+
+  document.getElementById("bar").style.width=percent+"%";
+  document.getElementById("progressText").innerText=percent+"% erledigt";
+}
+update();
+
+// Heute Liste
+function renderToday(){
+  let todayDiv = document.getElementById("todayList");
+  todayDiv.innerHTML="";
+
+  data.forEach((cat,ci)=>{
+    cat[1].forEach((item,ii)=>{
+      let key = ci+"-"+ii;
+      if(localStorage.getItem("today-"+key)==="true"){
+        let div = document.createElement("div");
+        div.innerText="• "+item[0];
+        todayDiv.appendChild(div);
+      }
+    });
+  });
+}
+
+renderToday();
+
+</script>
+
 </body>
 </html>
