@@ -88,7 +88,7 @@ input { margin-right: 10px; }
 
 <div class="container">
 
-<h1>M2 Masterplan</h1>
+<h1>100 Tage Lernplan - postM2</h1>
 
 <div id="progressText">0%</div>
 <div class="progress"><div class="bar" id="bar"></div></div>
@@ -105,23 +105,67 @@ input { margin-right: 10px; }
 <script>
 
 const data = [
-["Local Skills",[
-["Freibad testen",2],["Hallenbad testen",1],["Kinderwanderweg testen",3],
-["Fahrradtour planen",4],["Museum",2],["Outlet",1],["Zugausflug",3],
-["Kartoffeln holen",2],["Hederquelle",2],["Dom besuchen",2]
+["Local Skillz",[
+["In die Sälzer Lagune diven",1],["Von Baumhögger Kartoffeln holen",2],["Die Schwimmoper besuchen",3],
+["1 Fahrradtour planen",1],["Ins Heinz-Nixdorf-Dorum gehen",2],["Einen neuen Kinderwanderweg testen",2],["1 Outlet besuchen",3],
+["Den Dom besichtigen",1],["Das Tretbecken im Hederquellgebiet erkunden",1],["Einen Zugausflug mit den Kindern unternehmen",2]
 ]],
 
-["Familienskills",[
-["Urlaubsideen",3],["Kochideen",2],["Snackideen Kids",1],["Snackideen uns",1],
-["Tagesausflug",4],["DVD schauen",1],["Buch vorlesen",2],["Nägel lackieren",1],
-["Boden wischen",2],["Picknick",2],["Sozialkaufhaus",3]
+["Familienskillz",[
+["Neue Snackideen für die Kids erproben",5],["Einen Tagesausflug organisieren",3],["DVD 'Es war einmal das Leben' besorgen",1],["Allen ein neues Buch vorlesen",2],
+["Nägel lackieren",4],["Boden wischen mit Kindern",4],["Einen Picknickausflug vorbereiten",3],["Sand für Solawispielplatz besorgen",2],
+["Urlaubsideen präsentieren",3],["Neue Snackideen für uns",2],["Retoure zu Ikea bringen",1]
 ]],
 
-["Tillmannskills",[
-["Fahrrad",2],["Zur Ruhe kommen",4],["Yoga",3],["Bücher finden",2],
-["Ferdi treffen",2],["Tomatengruppe",2],["Shoppen",1],
-["Gespräch klären",5],["Balkon morgens",2]
+["Beziehungsskillz",[
+["Vanessa zum Geburtstag Kuchen backen",5],["Ein Date tagsüber organisieren",4],["Einen außergewöhnlichen Abend zu Hause vorbereiten",3],["Vanessa auf Ring kontrollieren",1],
+["Hochzeitsideen präsentieren",5],["Regeln für das Siedler Kartenspiel vorbereiten",2],["Baldurs Gate runterladen",1],["Vanessa auf Körperhaltung hinweisen",1],
+["Eine Inlinertour planen",1],["Private Muttertagsmassage",3]
+]],
+
+["Tillmannskillz",[
+["Ein neues Fahrrad besorgen",4],["Athletic Yoga testen",2],["Herausfinden, welches dein liebstes Buchgenre ist",4],["Ferdi treffen",2],
+["Die Tomatengruppe supporten",1],["Morgens frische Luft auf dem Balkon schnappen",1],["Jacken (aus)sortieren",3],
+["Wasserskifahrt organisieren",5],["Zaheinsde hören",4]
+]],
+
+["Handstandskillz",[
+["",4],["",2],["",4],["",2],
+["",1],["",1],["",3],
+["",5],["",4]
+]],
+
+["Backskillz",[
+["Möhren vorbereiten: schälen und reiben",2],["Zucker und Öl bereitstellen",1],["Levke beauftragen, Eier aufzuschlagen",2],["Jasper 1 TL Zimt in die silberne Schüssel streuen lassen",4],
+["Du rührst (Schneebesen), Kinder schütten rein",4],["Restliche Zutaten abwiegen",1],["Mehl und Backpulver vermischen",1],["Du rührst, Kinder löffeln rein",5],
+["Umfüllen und glatt streichen (mit Teigschaber, ggf leicht anfeuchten)",2],["Schieb in den Ofen rein",1]
+]],
+
+["Renovierungsskillz",[
+["Vorschläge zur Beleuchtung der Spielecke machen",5],["Bett für Jasper organisieren",2],["Gewürzregal bestellen und anbringen",2],["Leselampe fürs Sofa bestellen",2],
+["Aufbewahrungskisten für die Küche organisieren",3],["Flurwände renovieren",2],["Deko in Levkes Zimmer anbringen",4],
+["Wintersachen verstauen",1],["Sonnenschutz für die Schlafzimmer überlegen",3],["Balkon einrichten",3]
+]],
+
+["Daddyskillz",[
+["Sommerschuhe für Jasper organisieren",2],["Gartenequipment für die Kinder organisieren",2],["Gartenequipment für die Erwachsenen überlegen",4],["Ein Playdate planen und umsetzen",4],
+["Neue Hobbies für die Kinder testen",3],["Levke schwimmen beibringen",4],["Mit Jasper draußen pinkeln üben",3],
+["1 Bastelprojekt mit den Kindern",5],["Kresse anpflanzen",3],["Ein Dekoprojekt mit den Kindern überlegen",3]
+]],
+
+["Kochskillz",[
+["Etwas Indisches zubereiten (mit Naan)",4],["Einen Fancy Salat schnippeln",2],["Etwas israelisches kochen",4],["Einen Auflauf backen",2],
+["Fladenbrot backen",4],["Etwa neues veganes ausprobieren",1],["Apfelkuchen backen",3],
+["Spinatsmoothie machen",1],["Marmelade kochen",5],["Grillen",1]
+]],
+
+["Sportskillz",[
+["5 km joggen",2],["10 breite Klimmzüge",4],["2 min Plank",3],["3x10 Romanian Deadlift mit 40 kg",2],
+["30 min Rudern",1],["3x10 Bankdrücken mit 40 kg",1],["Mady im Reisfeld Yoga",2],
+["3x10 Burpees",3],["p",4],["z",4]
 ]]
+
+  
 ];
 
 // UI bauen
